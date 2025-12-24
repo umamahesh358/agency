@@ -10,38 +10,38 @@ const Team = () => {
 
     const team = [
         {
-            name: "Alex Mitchell",
+            name: "M.Uma Mahesh",
             role: "Founder & CEO",
-            image: "/images/team/founder.jpg",
-            bio: "10+ years scaling agencies from $0 to $10M+",
-            location: "New York, USA",
+            image: "/images/team/umamahesh.png",
+            bio: "1+ years scaling agencies from $0 to $10M+",
+            location: "Andhra Pradesh, INDIA",
             linkedin: "#",
-            specialties: ["Strategy", "Growth", "Automation"],
+            specialties: ["Strategy", "Growth", "Automation", "Web Design", "Web Development", "SEO", "Social Media Marketing"],
         },
         {
-            name: "Sarah Chen",
+            name: "Vibha",
             role: "Creative Director",
-            image: "/images/team/creative.jpg",
-            bio: "Former lead designer at top Fortune 500 brands",
-            location: "London, UK",
+            image: "/images/team/vibha.png",
+            bio: "1+ years lead designer ",
+            location: "Andhra Pradesh, INDIA",
             linkedin: "#",
             specialties: ["Branding", "UI/UX", "Motion"],
         },
         {
-            name: "Marcus Johnson",
+            name: "Vamshi",
             role: "Head of Marketing",
             image: "/images/team/marketing.jpg",
-            bio: "$50M+ in client revenue generated",
-            location: "Dubai, UAE",
+            bio: "1+ years in marketing",
+            location: "Andhra Pradesh, INDIA",
             linkedin: "#",
             specialties: ["Paid Ads", "SEO", "Analytics"],
         },
         {
-            name: "Emma Rodriguez",
+            name: "Sai",
             role: "Client Success Lead",
             image: "/images/team/success.jpg",
-            bio: "98% client retention rate champion",
-            location: "Sydney, Australia",
+            bio: "1+ years in client success",
+            location: "Andhra Pradesh, INDIA",
             linkedin: "#",
             specialties: ["Onboarding", "Support", "Growth"],
         },
@@ -101,7 +101,7 @@ const Team = () => {
                     transition={{ delay: 0.3, duration: 0.6 }}
                     className="flex flex-wrap justify-center gap-6 mb-16"
                 >
-                    {["🇺🇸 USA", "🇬🇧 UK", "🇦🇪 UAE", "🇦🇺 Australia"].map((location, i) => (
+                    {[].map((location, i) => (
                         <motion.div
                             key={location}
                             initial={{ opacity: 0, scale: 0.8 }}

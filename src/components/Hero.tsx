@@ -130,8 +130,8 @@ const Hero = () => {
     }, []);
 
     const stats = [
-        { value: 150, suffix: "+", label: "Clients Scaled" },
-        { value: 12, suffix: "M", prefix: "$", label: "Revenue Generated" },
+        { value: 10, suffix: "+", label: "Clients Scaled" },
+        { value: 1, suffix: "M", prefix: "$", label: "Revenue Generated" },
         { value: 98, suffix: "%", label: "Client Retention" },
     ];
 
@@ -218,7 +218,7 @@ const Hero = () => {
                                         <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#FFBF00]" />
                                     </span>
                                     <span className="text-[#FFBF00] text-sm font-semibold uppercase tracking-[0.2em]">
-                                        Digital Predator Agency
+                                        Automate SMMA Agency
                                     </span>
                                 </div>
                             </div>
@@ -308,7 +308,7 @@ const Hero = () => {
                             className="flex flex-wrap gap-5 pt-4"
                         >
                             <Link href="#contact" className="group relative inline-flex">
-                                <div className="absolute -inset-1 bg-gradient-to-r from-[#FFBF00] to-[#FF8C00] rounded-full blur-lg opacity-50 group-hover:opacity-80 transition-opacity" />
+                                <div className="absolute -inset-1 bg-gradient-to-r from-[#FFBF00] to-[#FF8C00] rounded-full blur-lg opacity-30 group-hover:opacity-60 transition-opacity" />
                                 <span className="relative btn-primary text-lg px-10 py-5">
                                     Start Hunting
                                     <svg className="inline-block ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -332,7 +332,7 @@ const Hero = () => {
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 30 }}
                             transition={{ delay: 2.4, duration: 0.6 }}
-                            className="flex flex-wrap gap-8 md:gap-12 pt-8 border-t border-white/10"
+                            className="flex flex-wrap gap-8 md:gap-12 pt-16 mt-8 border-t border-white/10"
                         >
                             {stats.map((stat, index) => (
                                 <div key={index} className="group cursor-default">
@@ -346,118 +346,27 @@ const Hero = () => {
                             ))}
                         </motion.div>
                     </div>
-
-                    {/* Right - Dashboard Card */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 100 }}
-                        animate={{ opacity: isLoaded ? 1 : 0, x: isLoaded ? 0 : 100 }}
-                        transition={{ duration: 1, delay: 1.8 }}
-                        className="lg:col-span-5 hidden lg:block"
-                    >
-                        <Tilt3DCard className="relative">
-                            <div className="absolute inset-0 bg-gradient-to-br from-[#FFBF00]/20 to-transparent blur-3xl -z-10 scale-110" />
-
-                            <div
-                                className="relative bg-gradient-to-br from-[#1A1A1A]/95 to-[#0a0a0a]/95 backdrop-blur-2xl rounded-[2rem] p-8 border border-[#FFBF00]/20"
-                                style={{ boxShadow: "0 25px 80px -20px rgba(255, 191, 0, 0.2)" }}
-                            >
-                                {/* Header */}
-                                <div className="flex items-center justify-between mb-6">
-                                    <div>
-                                        <span className="text-[#B3B3B3] text-xs uppercase tracking-[0.2em]">Live Dashboard</span>
-                                        <h3 className="text-white text-lg font-bold font-[family-name:var(--font-syne)] mt-1">client performance</h3>
-                                    </div>
-                                    <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20">
-                                        <span className="relative flex h-2 w-2">
-                                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                                            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-                                        </span>
-                                        <span className="text-emerald-400 text-xs font-medium">Live</span>
-                                    </div>
-                                </div>
-
-                                {/* Main Metric */}
-                                <div className="bg-[#0a0a0a]/70 rounded-2xl p-6 border border-white/5 mb-6">
-                                    <div className="flex items-end justify-between mb-4">
-                                        <div>
-                                            <p className="text-[#B3B3B3] text-sm mb-1">Monthly Revenue</p>
-                                            <p className="text-5xl font-bold font-[family-name:var(--font-syne)] text-white">
-                                                $847<span className="text-3xl text-[#FFBF00]">K</span>
-                                            </p>
-                                        </div>
-                                        <div className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-emerald-500/10">
-                                            <svg className="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
-                                            </svg>
-                                            <span className="text-emerald-400 text-sm font-bold">127%</span>
-                                        </div>
-                                    </div>
-
-                                    {/* Chart */}
-                                    <div className="h-24 flex items-end gap-1.5">
-                                        {[35, 55, 40, 75, 55, 85, 70, 90, 80, 95, 85, 100].map((height, i) => (
-                                            <motion.div
-                                                key={i}
-                                                className="flex-1 rounded-t-sm"
-                                                initial={{ height: 0 }}
-                                                animate={{ height: isLoaded ? `${height}%` : 0 }}
-                                                transition={{ delay: 2.5 + i * 0.05, duration: 0.5 }}
-                                                style={{
-                                                    background: i === 11
-                                                        ? "linear-gradient(180deg, #FFBF00 0%, #FF8C00 100%)"
-                                                        : "linear-gradient(180deg, rgba(255,191,0,0.6) 0%, rgba(255,191,0,0.1) 100%)",
-                                                }}
-                                            />
-                                        ))}
-                                    </div>
-                                </div>
-
-                                {/* Sub Metrics */}
-                                <div className="grid grid-cols-2 gap-4 mb-6">
-                                    <div className="bg-[#0a0a0a]/70 rounded-xl p-4 border border-white/5">
-                                        <p className="text-[#B3B3B3] text-xs mb-2">Conversion</p>
-                                        <p className="text-2xl font-bold text-white font-[family-name:var(--font-syne)]">8.4<span className="text-[#FFBF00]">%</span></p>
-                                    </div>
-                                    <div className="bg-[#0a0a0a]/70 rounded-xl p-4 border border-white/5">
-                                        <p className="text-[#B3B3B3] text-xs mb-2">New Leads</p>
-                                        <p className="text-2xl font-bold text-white font-[family-name:var(--font-syne)]">2,847</p>
-                                    </div>
-                                </div>
-
-                                {/* CTA */}
-                                <Link
-                                    href="#contact"
-                                    className="flex items-center justify-center gap-2 w-full py-4 rounded-xl bg-[#FFBF00]/10 border border-[#FFBF00]/30 text-[#FFBF00] font-semibold hover:bg-[#FFBF00] hover:text-[#050505] transition-all"
-                                >
-                                    Get These Results
-                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                    </svg>
-                                </Link>
-                            </div>
-                        </Tilt3DCard>
-                    </motion.div>
                 </div>
+
+                {/* Scroll Indicator */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: isLoaded ? 1 : 0 }}
+                    transition={{ delay: 3 }}
+                    className="absolute bottom-10 left-1/2 -translate-x-1/2"
+                >
+                    <div className="flex flex-col items-center gap-3 text-[#B3B3B3]">
+                        <span className="text-xs uppercase tracking-[0.3em] font-light">Scroll to explore</span>
+                        <motion.div
+                            animate={{ y: [0, 10, 0] }}
+                            transition={{ repeat: Infinity, duration: 2 }}
+                            className="w-6 h-10 rounded-full border border-[#FFBF00]/30 flex items-start justify-center p-2"
+                        >
+                            <div className="w-1.5 h-3 rounded-full bg-gradient-to-b from-[#FFBF00] to-[#FF8C00]" />
+                        </motion.div>
+                    </div>
+                </motion.div>
             </div>
-
-            {/* Scroll Indicator */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: isLoaded ? 1 : 0 }}
-                transition={{ delay: 3 }}
-                className="absolute bottom-10 left-1/2 -translate-x-1/2"
-            >
-                <div className="flex flex-col items-center gap-3 text-[#B3B3B3]">
-                    <span className="text-xs uppercase tracking-[0.3em] font-light">Scroll to explore</span>
-                    <motion.div
-                        animate={{ y: [0, 10, 0] }}
-                        transition={{ repeat: Infinity, duration: 2 }}
-                        className="w-6 h-10 rounded-full border border-[#FFBF00]/30 flex items-start justify-center p-2"
-                    >
-                        <div className="w-1.5 h-3 rounded-full bg-gradient-to-b from-[#FFBF00] to-[#FF8C00]" />
-                    </motion.div>
-                </div>
-            </motion.div>
         </section>
     );
 };

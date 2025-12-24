@@ -3,10 +3,10 @@ import Hero from "@/components/Hero";
 import TrustStrip from "@/components/TrustStrip";
 import Services from "@/components/Services";
 import Portfolio from "@/components/Portfolio";
+import FeaturedVideo from "@/components/FeaturedVideo";
 import About from "@/components/About";
 import Process from "@/components/Process";
 import Team from "@/components/Team";
-import VideoTestimonials from "@/components/VideoTestimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import CinematicLoader from "@/components/CinematicLoader";
@@ -43,7 +43,7 @@ export default function Home() {
           <TrustStrip />
           <Services />
           <Portfolio />
-          <VideoTestimonials />
+          <FeaturedVideo />
           <About />
           <Team />
           <Process />

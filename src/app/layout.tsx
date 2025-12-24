@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     url: "https://automatesmma.com",
     siteName: "Automate SMMA Agency",
     type: "website",
-    locale: "en_US",
+    locale: "in_India",
   },
   twitter: {
     card: "summary_large_image",
@@ -48,6 +48,10 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+  },
+  icons: {
+    icon: "/favicon.png",
+    apple: "/favicon.png",
   },
 };
 
@@ -77,8 +81,8 @@ export default function RootLayout({
               ],
               contactPoint: {
                 "@type": "ContactPoint",
-                telephone: "+1-XXX-XXX-XXXX",
-                contactType: "sales",
+                telephone: "+91 8500157859",
+                contactType: "lead",
                 availableLanguage: "English",
               },
               areaServed: "Worldwide",

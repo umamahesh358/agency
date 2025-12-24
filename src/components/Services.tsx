@@ -83,7 +83,7 @@ const Services = () => {
             {/* Animated Background Elements */}
             <div className="absolute inset-0 pointer-events-none">
                 <motion.div
-                    className="absolute w-[600px] h-[600px] rounded-full blur-[150px] opacity-20"
+                    className="absolute w-[600px] h-[600px] rounded-full blur-[150px] opacity-10"
                     style={{
                         y,
                         background: "radial-gradient(circle, #FFBF00 0%, transparent 70%)",
@@ -92,7 +92,7 @@ const Services = () => {
                     }}
                 />
                 <motion.div
-                    className="absolute w-[500px] h-[500px] rounded-full blur-[120px] opacity-15"
+                    className="absolute w-[500px] h-[500px] rounded-full blur-[120px] opacity-[0.08]"
                     style={{
                         y: useTransform(scrollYProgress, [0, 1], [-50, 150]),
                         background: "radial-gradient(circle, #FF8C00 0%, transparent 70%)",

@@ -4,9 +4,11 @@ import { useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
     const containerRef = useRef<HTMLDivElement>(null);
+    const formRef = useRef<HTMLFormElement>(null);
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start end", "end start"],
@@ -24,15 +26,42 @@ const Contact = () => {
 
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitSuccess, setSubmitSuccess] = useState(false);
+    const [submitError, setSubmitError] = useState("");
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
-        // Simulate API call
-        await new Promise((resolve) => setTimeout(resolve, 1500));
-        setIsSubmitting(false);
-        setSubmitSuccess(true);
-        console.log("Form submitted:", formData);
+        setSubmitError("");
+
+        try {
+            // EmailJS Configuration
+            // Replace these with your actual EmailJS credentials
+            const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "YOUR_SERVICE_ID";
+            const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "YOUR_TEMPLATE_ID";
+            const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "YOUR_PUBLIC_KEY";
+
+            await emailjs.send(
+                serviceId,
+                templateId,
+                {
+                    from_name: formData.name,
+                    from_email: formData.email,
+                    company: formData.company,
+                    industry: formData.industry,
+                    message: formData.message,
+                    to_email: "maddaliumamahesh@gmail.com",
+                },
+                publicKey
+            );
+
+            setIsSubmitting(false);
+            setSubmitSuccess(true);
+            setFormData({ name: "", email: "", company: "", industry: "", message: "" });
+        } catch (error) {
+            setIsSubmitting(false);
+            setSubmitError("Failed to send message. Please try again or email us directly.");
+            console.error("EmailJS error:", error);
+        }
     };
 
     const handleChange = (
@@ -60,7 +89,7 @@ const Contact = () => {
 
                 {/* Animated Gradient Orbs */}
                 <motion.div
-                    className="absolute w-[600px] h-[600px] rounded-full blur-[150px] opacity-15"
+                    className="absolute w-[600px] h-[600px] rounded-full blur-[150px] opacity-[0.08]"
                     animate={{
                         x: [0, 50, 0],
                         y: [0, 30, 0],
@@ -129,7 +158,7 @@ const Contact = () => {
                         {/* Contact Methods */}
                         <div className="space-y-4">
                             {[
-                                { icon: "email", title: "Email Us", value: "hello@automatesmma.com" },
+                                { icon: "email", title: "Email Us", value: "maddaliumamahesh@gmail.com" },
                                 { icon: "calendar", title: "Book a Call", value: "30-min Strategy Session" },
                             ].map((item, index) => (
                                 <motion.div
@@ -318,6 +347,7 @@ const Contact = () => {
                                     whileHover={{ scale: 1.01 }}
                                     whileTap={{ scale: 0.99 }}
                                     disabled={isSubmitting}
+                                    suppressHydrationWarning
                                 >
                                     <div className="absolute inset-0 bg-gradient-to-r from-[#FFBF00] to-[#FF8C00]" />
                                     <div className="absolute inset-0 bg-gradient-to-r from-[#FF8C00] to-[#FFBF00] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

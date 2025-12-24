@@ -4,22 +4,22 @@ import { motion } from "framer-motion";
 
 const TrustStrip = () => {
     const logos = [
+        "ZAYKAA",
+        "Shankar Heights",
+        "Navyas International Dental Hospital",
+        "Bhadradri Papikondalu Tourism",
+        "Aqua Kushi",
+        "Sarvagna Innovation Pvt",
+        "Urban Realty",
+        "Elite Properties",
         "Luxury Estates",
         "MedCare Plus",
-        "Vogue Studio",
-        "TravelLux",
-        "Urban Realty",
-        "HealthFirst",
-        "Fashion Forward",
-        "Elite Properties",
         "Wellness Co",
-        "Style House",
         "Prime Med",
-        "Wanderlust",
     ];
 
     return (
-        <section className="py-16 border-y border-white/5 overflow-hidden bg-[#0a0a0a]">
+        <section className="pt-32 pb-16 border-y border-white/5 overflow-hidden bg-[#0a0a0a]">
             <div className="section-container mb-8">
                 <motion.p
                     initial={{ opacity: 0 }}

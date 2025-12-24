@@ -16,53 +16,58 @@ const Portfolio = () => {
     const projects = [
         {
             id: 1,
-            title: "Luxury Living Estates",
-            category: "Real Estate",
-            tags: ["Web Design", "SEO", "Lead Gen"],
-            metric: "+340%",
-            metricLabel: "Organic Traffic",
-            image: "/images/tiger-crouch.jpg",
+            title: "ZAYKAA",
+            category: "Food Delivery",
+            tags: ["Full SEO", "Website", "Marketing"],
+            metric: "+450%",
+            metricLabel: "Order Growth",
+            image: "/images/projects/zaykaa.png",
             size: "large",
+            link: "https://www.zaykaa.in/",
         },
         {
             id: 2,
-            title: "Premier Medical Group",
-            category: "Healthcare",
-            tags: ["Brand Identity", "Website"],
-            metric: "2.5K",
-            metricLabel: "Monthly Leads",
-            image: "/images/tiger-face.jpg",
+            title: "Sri Sankara Heights",
+            category: "Real Estate",
+            tags: ["Web Design", "Lead Gen", "Branding"],
+            metric: "200+",
+            metricLabel: "Inquiries Generated",
+            image: "/images/projects/shankar-heights.png",
             size: "medium",
+            link: "",
         },
         {
             id: 3,
-            title: "Vogue Fashion House",
-            category: "Fashion",
-            tags: ["Social Media", "E-commerce"],
-            metric: "$1.2M",
-            metricLabel: "Revenue",
-            image: "/images/tiger-sprint.jpg",
+            title: "Navya's International Dental Hospital",
+            category: "Healthcare",
+            tags: ["Website", "SEO", "Digital Marketing"],
+            metric: "10K+",
+            metricLabel: "Happy Patients",
+            image: "/images/projects/navyas-dental.png",
             size: "medium",
+            link: "https://www.navyasinternationaldentalhospital.in/",
         },
         {
             id: 4,
-            title: "Wanderlust Travel Co",
-            category: "Travel",
-            tags: ["Website", "Automation"],
-            metric: "+890%",
+            title: "Bhadradri Papikondalu Tourism",
+            category: "Tourism",
+            tags: ["Website", "Booking System", "SEO"],
+            metric: "+320%",
             metricLabel: "Bookings",
-            image: "/images/tiger-walk.jpg",
+            image: "/images/projects/papikondalu-tourism.png",
             size: "small",
+            link: "https://www.bhadradripapikondalu.com/",
         },
         {
             id: 5,
-            title: "Urban Boutique Realty",
-            category: "Real Estate",
-            tags: ["Full Service"],
-            metric: "47",
-            metricLabel: "Listings Sold",
-            image: "/images/tiger-prowl.jpg",
+            title: "Inlighn Tech",
+            category: "Technology",
+            tags: ["Website", "E-Learning Platform"],
+            metric: "1500+",
+            metricLabel: "Students Enrolled",
+            image: "/images/projects/inlighn-tech.png",
             size: "small",
+            link: "https://inlightn-blueprint-revamp-883e.vercel.app/",
         },
     ];
 
@@ -71,7 +76,7 @@ const Portfolio = () => {
             {/* Background Effects */}
             <div className="absolute inset-0 pointer-events-none">
                 <motion.div
-                    className="absolute w-[800px] h-[800px] rounded-full blur-[150px] opacity-10"
+                    className="absolute w-[800px] h-[800px] rounded-full blur-[150px] opacity-[0.05]"
                     style={{
                         y,
                         background: "radial-gradient(circle, #FFBF00 0%, transparent 70%)",
@@ -97,15 +102,37 @@ const Portfolio = () => {
                         transition={{ delay: 0.2, type: "spring" }}
                         className="inline-block px-4 py-2 rounded-full border border-[#FFBF00]/30 bg-[#FFBF00]/5 text-[#FFBF00] text-sm uppercase tracking-[0.2em] font-medium mb-6"
                     >
-                        Our Work
+                        ✨ Proven Results
                     </motion.span>
                     <h2 className="text-5xl md:text-7xl font-extrabold font-[family-name:var(--font-syne)] mb-6">
-                        <span className="text-white">proven </span>
-                        <span className="premium-gradient-text">results</span>
+                        <span className="text-white">our </span>
+                        <span className="premium-gradient-text">real work</span>
                     </h2>
-                    <p className="text-[#B3B3B3] text-xl max-w-2xl mx-auto">
-                        Case studies from clients who chose to dominate their markets.
+                    <p className="text-[#B3B3B3] text-xl max-w-2xl mx-auto mb-10">
+                        Real projects. Real results. See how we've helped businesses across India grow their digital presence.
                     </p>
+
+                    {/* Quick Stats */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.4 }}
+                        className="flex flex-wrap justify-center gap-8 md:gap-16"
+                    >
+                        {[
+                            { value: "5+", label: "Projects Delivered" },
+                            { value: "100%", label: "Client Satisfaction" },
+                            { value: "5", label: "Industries Served" },
+                        ].map((stat, i) => (
+                            <div key={i} className="text-center">
+                                <p className="text-3xl md:text-4xl font-bold text-[#FFBF00] font-[family-name:var(--font-syne)]">
+                                    {stat.value}
+                                </p>
+                                <p className="text-[#B3B3B3] text-sm uppercase tracking-wider">{stat.label}</p>
+                            </div>
+                        ))}
+                    </motion.div>
                 </motion.div>
 
                 {/* Bento Grid */}
@@ -121,34 +148,6 @@ const Portfolio = () => {
                     <PortfolioCard project={projects[3]} index={3} className="md:col-span-1" />
                     <PortfolioCard project={projects[4]} index={4} className="md:col-span-1" />
                 </div>
-
-                {/* View All Button */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.6 }}
-                    className="text-center mt-16"
-                >
-                    <motion.button
-                        className="group relative inline-flex items-center gap-3 px-8 py-4 rounded-full border border-white/20 text-white font-semibold hover:border-[#FFBF00] hover:text-[#FFBF00] transition-all duration-300"
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        suppressHydrationWarning
-                    >
-                        <span>View All Projects</span>
-                        <motion.svg
-                            className="w-5 h-5"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            animate={{ x: [0, 5, 0] }}
-                            transition={{ repeat: Infinity, duration: 1.5 }}
-                        >
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </motion.svg>
-                    </motion.button>
-                </motion.div>
             </div>
         </section>
     );
@@ -164,6 +163,7 @@ interface PortfolioCardProps {
         metricLabel: string;
         image: string;
         size: string;
+        link: string;
     };
     index: number;
     className?: string;
@@ -173,7 +173,7 @@ interface PortfolioCardProps {
 const PortfolioCard = ({ project, index, className = "", isLarge = false }: PortfolioCardProps) => {
     const [isHovered, setIsHovered] = useState(false);
 
-    return (
+    const CardContent = (
         <motion.div
             initial={{ opacity: 0, y: 60, rotateX: -10 }}
             whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
@@ -183,7 +183,7 @@ const PortfolioCard = ({ project, index, className = "", isLarge = false }: Port
                 duration: 0.8,
                 ease: [0.22, 1, 0.36, 1]
             }}
-            className={`group perspective-1000 ${className}`}
+            className={`group perspective-1000 ${className} ${project.link ? "cursor-pointer" : ""}`}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
@@ -198,22 +198,25 @@ const PortfolioCard = ({ project, index, className = "", isLarge = false }: Port
                     boxShadow: isHovered ? "0 30px 80px -20px rgba(255, 191, 0, 0.2)" : "none",
                 }}
             >
-                {/* Image with Parallax */}
+                {/* Image - Full Quality */}
                 <motion.div
-                    className="absolute inset-0"
-                    animate={isHovered ? { scale: 1.1 } : { scale: 1 }}
-                    transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                    className="absolute inset-0 bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a]"
+                    animate={isHovered ? { scale: 1.02 } : { scale: 1 }}
+                    transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                 >
                     <Image
                         src={project.image}
                         alt={project.title}
                         fill
-                        className="object-cover"
+                        className="object-contain object-center"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        quality={100}
+                        unoptimized
                     />
                 </motion.div>
 
-                {/* Overlay Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/60 to-transparent" />
+                {/* Overlay Gradient - Lighter for better image visibility */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/30 to-transparent" />
 
                 {/* Hover Color Overlay */}
                 <motion.div
@@ -300,6 +303,17 @@ const PortfolioCard = ({ project, index, className = "", isLarge = false }: Port
             </motion.div>
         </motion.div>
     );
+
+    // Wrap in link if project has a link
+    if (project.link) {
+        return (
+            <a href={project.link} target="_blank" rel="noopener noreferrer" className="block">
+                {CardContent}
+            </a>
+        );
+    }
+
+    return CardContent;
 };
 
 export default Portfolio;
