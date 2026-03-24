@@ -1,15 +1,17 @@
+import dynamic from "next/dynamic";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import TrustStrip from "@/components/TrustStrip";
-import Services from "@/components/Services";
-import Portfolio from "@/components/Portfolio";
-import FeaturedVideo from "@/components/FeaturedVideo";
-import About from "@/components/About";
-import Process from "@/components/Process";
-import Team from "@/components/Team";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
 import CinematicLoader from "@/components/CinematicLoader";
+
+const Services = dynamic(() => import("@/components/Services"));
+const Portfolio = dynamic(() => import("@/components/Portfolio"));
+const FeaturedVideo = dynamic(() => import("@/components/FeaturedVideo"));
+const About = dynamic(() => import("@/components/About"));
+const Process = dynamic(() => import("@/components/Process"));
+const Team = dynamic(() => import("@/components/Team"));
+const Contact = dynamic(() => import("@/components/Contact"));
+const Footer = dynamic(() => import("@/components/Footer"));
 
 export default function Home() {
   return (

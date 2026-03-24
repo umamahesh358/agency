@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://automatesmma.com
+
+# Sitemaps
+Sitemap: https://automatesmma.com/sitemap.xml

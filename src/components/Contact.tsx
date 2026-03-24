@@ -40,7 +40,9 @@ const Contact = () => {
             const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "YOUR_TEMPLATE_ID";
             const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "YOUR_PUBLIC_KEY";
 
-            await emailjs.send(
+            console.log("EmailJS Sending with:", { serviceId, templateId, publicKey: publicKey ? "***" : "missing" });
+
+            const result = await emailjs.send(
                 serviceId,
                 templateId,
                 {
@@ -53,14 +55,18 @@ const Contact = () => {
                 },
                 publicKey
             );
+            
+            console.log("EmailJS Success:", result);
 
             setIsSubmitting(false);
             setSubmitSuccess(true);
             setFormData({ name: "", email: "", company: "", industry: "", message: "" });
-        } catch (error) {
+        } catch (error: any) {
             setIsSubmitting(false);
             setSubmitError("Failed to send message. Please try again or email us directly.");
-            console.error("EmailJS error:", error);
+            console.error("EmailJS error full:", error);
+            if (error?.text) console.error("EmailJS error text:", error.text);
+            if (error?.message) console.error("EmailJS error message:", error.message);
         }
     };
 

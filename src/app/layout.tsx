@@ -35,10 +35,10 @@ export const metadata: Metadata = {
     title: "Automate SMMA Agency | Digital Dominance Through Automation",
     description:
       "Cinematic, automation-driven digital experiences for clients who demand dominance.",
-    url: "https://automatesmma.com",
+    url: "https://www.automatedigitalmarketingagency.live",
     siteName: "Automate SMMA Agency",
     type: "website",
-    locale: "in_India",
+    locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
@@ -72,8 +72,8 @@ export default function RootLayout({
               name: "Automate SMMA Agency",
               description:
                 "Premium digital marketing agency specializing in Website-as-a-Service, SEO, and Social Media Marketing",
-              url: "https://automatesmma.com",
-              logo: "https://automatesmma.com/logo.png",
+              url: "https://www.automatedigitalmarketingagency.live",
+              logo: "https://www.automatedigitalmarketingagency.live/logo.png",
               sameAs: [
                 "https://twitter.com/automatesmma",
                 "https://linkedin.com/company/automatesmma",
